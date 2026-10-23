@@ -53,7 +53,7 @@ test('blocked webhards are not stored anywhere in the ranking data', () => {
     'data/rankings/webhard-links.json', 'public/ranking-images/apps/sources.json'];
   const stored = files.map((f) => fs.readFileSync(f, 'utf8').replace(/"blocked":\s*\[[^\]]*\]/, '')).join('\n');
   for (const name of pool.blocked) assert.ok(!stored.includes(name), `${name}은(는) 넣을 수 없는 업체입니다`);
-  assert.ok(!/me2disk|filecast|fileis|applefile/i.test(stored));
+  assert.ok(!/me2disk|filecast|fileis|applefile|smartfile|pdpop/i.test(stored));
 });
 
 test('new entrants keep NEW for one update and existing ranks compare to the previous publication', () => {
@@ -84,6 +84,6 @@ test('every webhard button goes through a go page that leads to the partner link
     assert.match(html, /noindex/);
   }
   for (const name of Object.keys(links)) assert.ok(start.some((it) => it.name === name) || pool.reserve.some((it) => it.name === name), name);
-  assert.ok(!fs.readdirSync(path.join(out, 'go')).some((id) => /me2disk|filecast|fileis|applefile/.test(id)));
+  assert.ok(!fs.readdirSync(path.join(out, 'go')).some((id) => /me2disk|filecast|fileis|applefile|smartfile|pdpop/.test(id)));
   fs.rmSync(out, { recursive: true, force: true });
 });
