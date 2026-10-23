@@ -1,6 +1,14 @@
 {
   "reserve": [
     {
+      "name": "파일노리",
+      "url": "https://www.filenori.com/"
+    },
+    {
+      "name": "파일쿠키",
+      "url": "https://www.filekuki.com/"
+    },
+    {
       "name": "파일시티",
       "url": "https://www.filecity.co.kr/"
     }
