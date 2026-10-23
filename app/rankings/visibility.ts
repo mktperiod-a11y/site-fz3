@@ -3,7 +3,7 @@ import pool from '../../data/webhard-pool.json';
 
 const normalize = (value: string) => value.normalize('NFKC').replace(/\s+/g, '').toLowerCase();
 const blocked = pool.blocked.map(normalize);
-const blockedDomains = ['me2disk.com', 'filecast.co.kr', 'fileis.com', 'applefile.com'];
+const blockedDomains = ['me2disk.com', 'filecast.co.kr', 'fileis.com', 'applefile.com', 'smartfile.co.kr', 'pdpop.com'];
 export function applyVisibility(pages: RankingPage[]): RankingPage[] {
   return pages.map(p => {
     const rows = p.rows.filter(row => {

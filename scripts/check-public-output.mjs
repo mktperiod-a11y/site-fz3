@@ -15,7 +15,7 @@ export function checkPublicOutput(root) {
       const raw = fs.readFileSync(file, 'utf8');
       const text = raw.replace(/\\u([0-9a-f]{4})/gi, (_, h) => String.fromCharCode(parseInt(h, 16)));
       checked++;
-      if (blocked.some(name => text.includes(name)) || /me2disk\.com|filecast\.co\.kr|fileis\.com|applefile\.com/i.test(text)) failures.push(`${file}: blocked service`);
+      if (blocked.some(name => text.includes(name)) || /me2disk\.com|filecast\.co\.kr|fileis\.com|applefile\.com|smartfile\.co\.kr|pdpop\.com/i.test(text)) failures.push(`${file}: blocked service`);
       if (/sourceMappingURL\s*=/.test(text)) failures.push(`${file}: source map reference`);
       if (/\bprevRank\b|\bmaxRank\b|webhard-pool\.json/.test(text)) failures.push(`${file}: internal ranking configuration`);
       if (/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|(?:ghp_|github_pat_)[A-Za-z0-9_]{20,}/.test(text)) failures.push(`${file}: credential pattern`);

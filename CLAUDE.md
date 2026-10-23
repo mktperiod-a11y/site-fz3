@@ -48,5 +48,5 @@
 - 데이터 갱신 봇(`update-*.yml`, `posters.yml`, `poster-comment.yml`)은 github-actions[bot] 비공개 주소로 커밋한다. 봇 커밋은 push 이벤트를 일으키지 않으므로, 개인정보 검사는 매일 한 번 따로 돈다.
 - 개인정보 검사는 배포를 막지 않는다. 봇이 받은 이미지 하나 때문에 사이트 갱신이 멈추지 않게 하기 위해서다. 검사가 실패하면 바로 고친다.
 - 이미지를 내려받아 저장하는 코드는 `scripts/posters.mjs`처럼 sharp로 다시 저장한다. `scripts/update-netflix.mjs`, `scripts/update-records.mjs`, `scripts/fetch-portraits.mjs`는 아직 받은 파일을 그대로 저장한다.
-- 웹하드 순위에서 다루지 않는 업체는 `data/webhard-pool.json`의 `blocked`(지금 미투디스크·파일캐스트·파일이즈·애플파일)에 둔다. 이 업체는 순위·예비 목록·설명·링크·이미지 어디에도 넣지 않는다. 넣으면 테스트(`tests/webhard.test.mjs`)와 공개 산출물 검사가 실패해 배포가 멈춘다. 다시 넣자는 요청이 오면 먼저 소유자에게 알린다.
+- 웹하드 순위에서 다루지 않는 업체는 `data/webhard-pool.json`의 `blocked`(지금 미투디스크·파일캐스트·파일이즈·애플파일·스마트파일·피디팝)에 둔다. 이 업체는 순위·예비 목록·설명·링크·이미지 어디에도 넣지 않는다. 넣으면 테스트(`tests/webhard.test.mjs`)와 공개 산출물 검사가 실패해 배포가 멈춘다. 다시 넣자는 요청이 오면 먼저 소유자에게 알린다.
 - 순위에서 자리가 비면 파일보고·예스파일·위디스크·파일노리·파일쿠키 순서로 채운다(2026-10 소유자 결정).
