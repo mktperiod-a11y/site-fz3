@@ -47,16 +47,25 @@ test('blocked webhards never appear and reserve fills empty slots', async () => 
 });
 
 
+test('blocked webhards are not stored anywhere in the ranking data', () => {
+  const pool = JSON.parse(fs.readFileSync('data/webhard-pool.json', 'utf8'));
+  const files = ['data/rankings/webhard.json', 'data/webhard-pool.json', 'data/rankings/webhard-notes.json',
+    'data/rankings/webhard-links.json', 'public/ranking-images/apps/sources.json'];
+  const stored = files.map((f) => fs.readFileSync(f, 'utf8').replace(/"blocked":\s*\[[^\]]*\]/, '')).join('\n');
+  for (const name of pool.blocked) assert.ok(!stored.includes(name), `${name}은(는) 넣을 수 없는 업체입니다`);
+  assert.ok(!/me2disk|filecast|fileis|applefile/i.test(stored));
+});
+
 test('new entrants keep NEW for one update and existing ranks compare to the previous publication', () => {
   const pool = JSON.parse(fs.readFileSync('data/webhard-pool.json', 'utf8'));
-  const previous = start.filter(it => it.name !== '애플파일');
-  const next = updateRanking(previous, { ...pool, reserve: [{ name: '애플파일', url: 'https://www.applefile.com/' }] }, () => 0.99);
-  assert.equal(next.items.find(it => it.name === '애플파일').prevRank, null);
-  for (const row of next.items.filter(it => it.name !== '애플파일')) {
+  const previous = start.filter(it => it.name !== start[9].name);
+  const next = updateRanking(previous, { ...pool, reserve: [{ name: '파일노리', url: 'https://www.filenori.com/' }] }, () => 0.99);
+  assert.equal(next.items.find(it => it.name === '파일노리').prevRank, null);
+  for (const row of next.items.filter(it => it.name !== '파일노리')) {
     assert.equal(row.prevRank, previous.find(it => it.name === row.name).rank);
   }
   const again = updateRanking(next.items, next.pool, () => 0.99);
-  assert.equal(again.items.find(it => it.name === '애플파일').prevRank, next.items.find(it => it.name === '애플파일').rank);
+  assert.equal(again.items.find(it => it.name === '파일노리').prevRank, next.items.find(it => it.name === '파일노리').rank);
   for (const name of pool.required) assert.ok(again.items.some(it => it.name === name));
 });
 
@@ -75,6 +84,6 @@ test('every webhard button goes through a go page that leads to the partner link
     assert.match(html, /noindex/);
   }
   for (const name of Object.keys(links)) assert.ok(start.some((it) => it.name === name) || pool.reserve.some((it) => it.name === name), name);
-  assert.ok(!fs.readdirSync(path.join(out, 'go')).some((id) => /me2disk|filecast|fileis/.test(id)));
+  assert.ok(!fs.readdirSync(path.join(out, 'go')).some((id) => /me2disk|filecast|fileis|applefile/.test(id)));
   fs.rmSync(out, { recursive: true, force: true });
 });

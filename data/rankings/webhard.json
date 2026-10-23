@@ -66,11 +66,11 @@
       "prevRank": 9
     },
     {
-      "name": "애플파일",
-      "url": "https://www.applefile.com/",
+      "name": "위디스크",
+      "url": "https://www.wedisk.co.kr/",
       "base": 10,
       "rank": 10,
-      "prevRank": 10
+      "prevRank": null
     }
   ]
 }
