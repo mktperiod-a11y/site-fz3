@@ -83,5 +83,15 @@
     "image": "/ranking-images/apps/filebogo.jpg",
     "source": "https://apps.apple.com/kr/app/%ED%8C%8C%EC%9D%BC%EB%B3%B4%EA%B3%A0/id6766728476",
     "app": "파일보고"
+  },
+  "파일노리": {
+    "image": "/ranking-images/apps/filenori.jpg",
+    "source": "https://play.google.com/store/apps/details?id=com.FNoriShopGo",
+    "app": "파일노리"
+  },
+  "파일쿠키": {
+    "image": "/ranking-images/apps/filecookie.jpg",
+    "source": "https://play.google.com/store/apps/details?id=com.filekukiv6",
+    "app": "파일쿠키"
   }
 }
