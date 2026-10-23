@@ -14,8 +14,6 @@ const BRAND: Record<string, Record<string, Img>> = {
     파일몽: { image: '/ranking-images/apps/tile-filemong.png', source: 'https://www.filemong.com/' },
     파일스타: { image: '/ranking-images/apps/tile-filestar.png', source: 'https://filestar.co.kr/' },
     위디스크: { image: '/ranking-images/apps/tile-wedisk.png', source: 'https://www.wedisk.co.kr/' },
-    파일노리: { image: '/ranking-images/apps/tile-filenori.png', source: 'https://www.filenori.com/' },
-    파일쿠키: { image: '/ranking-images/apps/tile-filecookie.png', source: 'https://www.filekuki.com/' },
   },
   'korea-pc-games-share': {
     ...fromApps(pcArt),
