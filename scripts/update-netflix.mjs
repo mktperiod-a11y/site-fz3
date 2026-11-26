@@ -127,7 +127,9 @@ async function tmdbPoster(row, category) {
 async function download(src, file) {
   const res = await fetch(src, { headers: { 'user-agent': UA }, signal: AbortSignal.timeout(30000) });
   if (!res.ok) throw new Error(`이미지 응답 ${res.status}`);
-  fs.writeFileSync(file, Buffer.from(await res.arrayBuffer()));
+  const { default: sharp } = await import('sharp');
+  const image = await sharp(Buffer.from(await res.arrayBuffer())).rotate().jpeg({ quality: 88 }).toBuffer();
+  fs.writeFileSync(file, image);
 }
 
 async function enrich(chart, saveImages) {

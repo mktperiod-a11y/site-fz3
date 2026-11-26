@@ -1,58 +1,58 @@
 {
   "source": "https://jumin.mois.go.kr/statMonth.do",
-  "month": "2026-09",
-  "total": 51082431,
+  "month": "2026-10",
+  "total": 51075282,
   "rows": [
     {
       "rank": 1,
       "name": "경기도",
-      "population": 13777186
+      "population": 13780735
     },
     {
       "rank": 2,
       "name": "서울특별시",
-      "population": 9279861
+      "population": 9274392
     },
     {
       "rank": 3,
       "name": "부산광역시",
-      "population": 3228188
+      "population": 3226446
     },
     {
       "rank": 4,
       "name": "경상남도",
-      "population": 3190549
+      "population": 3189204
     },
     {
       "rank": 5,
       "name": "전남광주통합특별시",
-      "population": 3154398
+      "population": 3152970
     },
     {
       "rank": 6,
       "name": "인천광역시",
-      "population": 3068328
+      "population": 3070203
     },
     {
       "rank": 7,
       "name": "경상북도",
-      "population": 2491506
+      "population": 2489894
     },
     {
       "rank": 8,
       "name": "대구광역시",
-      "population": 2345828
+      "population": 2345185
     },
     {
       "rank": 9,
       "name": "충청남도",
-      "population": 2139558
+      "population": 2140278
     },
     {
       "rank": 10,
       "name": "전북특별자치도",
-      "population": 1716229
+      "population": 1715109
     }
   ],
-  "checkedAt": "2026-10-08"
+  "checkedAt": "2026-11-26"
 }

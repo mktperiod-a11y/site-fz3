@@ -1,97 +1,98 @@
 {
   "source": "https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv",
-  "weekStart": "2026-09-28",
-  "weekEnd": "2026-10-04",
-  "checkedAt": "2026-10-14",
+  "weekStart": "2026-11-16",
+  "weekEnd": "2026-11-22",
+  "checkedAt": "2026-11-26",
   "rows": [
     {
       "rank": 1,
-      "title": "Kian’s Bizarre B&B",
-      "season": "Season 2",
-      "weeks": 2,
-      "videoId": 81948520,
-      "titleKo": "대환장 기안장",
-      "image": "/ranking-images/netflix/81948520.jpg"
+      "title": "The Blue Road",
+      "season": "Limited Series",
+      "weeks": 1,
+      "videoId": 81941627,
+      "titleKo": "푸른길",
+      "image": "/ranking-images/netflix/81941627.jpg"
     },
     {
       "rank": 2,
-      "title": "Marriage of Convenience",
-      "season": "Season 1",
-      "weeks": 1,
-      "videoId": 83193406,
-      "image": "/ranking-images/netflix/83193406.jpg"
+      "title": "The Devil's Plan",
+      "season": "Season 3",
+      "weeks": 2,
+      "videoId": 82132424,
+      "titleKo": "데블스 플랜",
+      "image": "/ranking-images/netflix/82132424.jpg"
     },
     {
       "rank": 3,
-      "title": "The Scandal",
-      "season": "Limited Series",
-      "weeks": 3,
-      "videoId": 81911391,
-      "titleKo": "스캔들",
-      "image": "/ranking-images/netflix/81911391.jpg"
+      "title": "Good Partner",
+      "season": "Season 2",
+      "weeks": 1,
+      "videoId": 83355633,
+      "titleKo": "굿파트너",
+      "image": "/ranking-images/netflix/83355633.jpg"
     },
     {
       "rank": 4,
-      "title": "Four Hands, Two Sonatas",
-      "season": "Limited Series",
-      "weeks": 6,
-      "videoId": 82682405,
-      "titleKo": "포핸즈",
-      "image": "/ranking-images/netflix/82682405.jpg"
+      "title": "Sword & Silence",
+      "season": "Season 1",
+      "weeks": 2,
+      "videoId": 82799831,
+      "titleKo": "문무",
+      "image": "/ranking-images/netflix/82799831.jpg"
     },
     {
       "rank": 5,
+      "title": "100 Days of Deception",
+      "season": "Limited Series",
+      "weeks": 7,
+      "videoId": 82682434,
+      "titleKo": "100일의 거짓말",
+      "image": "/ranking-images/netflix/82682434.jpg"
+    },
+    {
+      "rank": 6,
+      "title": "Doctor X: Mafia in White",
+      "season": "Limited Series",
+      "weeks": 7,
+      "videoId": 82682380,
+      "titleKo": "닥터X: 하얀 마피아의 시대",
+      "image": "/ranking-images/netflix/82682380.jpg"
+    },
+    {
+      "rank": 7,
+      "title": "The Devil's Plan B",
+      "season": "Season 1",
+      "weeks": 1,
+      "videoId": 83193647,
+      "titleKo": "데블스플랜 B",
+      "image": "/ranking-images/netflix/83193647.jpg"
+    },
+    {
+      "rank": 8,
+      "title": "Dead-End Job",
+      "season": "Limited Series",
+      "weeks": 4,
+      "videoId": 81997888,
+      "titleKo": "꿀알바",
+      "image": "/ranking-images/netflix/81997888.jpg"
+    },
+    {
+      "rank": 9,
       "title": "I am Solo",
-      "season": "Part 33",
-      "weeks": 9,
+      "season": "Part 34",
+      "weeks": 7,
       "videoId": 83179885,
       "titleKo": "나는 솔로",
       "image": "/ranking-images/netflix/83179885.jpg"
     },
     {
-      "rank": 6,
-      "title": "Your Personal Taxi",
-      "season": "Season 1",
-      "weeks": 1,
-      "titleKo": "개인적인 택시",
-      "image": "/ranking-images/netflix/83036522.jpg",
-      "videoId": 83036522
-    },
-    {
-      "rank": 7,
-      "title": "Kian’s Bizarre B&B",
-      "season": "Season 1",
-      "weeks": 7,
-      "videoId": 81948520,
-      "titleKo": "대환장 기안장",
-      "image": "/ranking-images/netflix/81948520.jpg"
-    },
-    {
-      "rank": 8,
-      "title": "Mousetrap",
-      "season": "Limited Series",
-      "weeks": 6,
-      "titleKo": "들쥐",
-      "image": "/ranking-images/netflix/81991750.jpg",
-      "videoId": 81991750
-    },
-    {
-      "rank": 9,
-      "title": "I'm SOLO, Love goes on",
-      "season": "2026 Part 2",
-      "weeks": 8,
-      "titleKo": "나는 SOLO, 그 후 사랑은 계속된다",
-      "image": "/ranking-images/netflix/83134802.jpg",
-      "videoId": 83134802
-    },
-    {
       "rank": 10,
-      "title": "Teach You a Lesson",
-      "season": "Limited Series",
-      "weeks": 12,
-      "titleKo": "참교육",
-      "image": "/ranking-images/netflix/81947301.jpg",
-      "videoId": 81947301
+      "title": "Romance School : First & Again",
+      "season": "Season 2",
+      "weeks": 3,
+      "videoId": 83115109,
+      "titleKo": "연애기숙학교 돌싱N모솔",
+      "image": "/ranking-images/netflix/83115109.jpg"
     }
   ]
 }

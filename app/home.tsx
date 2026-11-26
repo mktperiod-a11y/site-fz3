@@ -85,6 +85,13 @@ export default function Home({ picks, trendsAt, hotDay, pages, slugByTitle }: { 
     const shown = (item: typeof rankings[number]) => pageBySlug[slugByTitle[item.title]] && !pageBySlug[slugByTitle[item.title]].noindex;
     const list = rankings.filter((item) => shown(item) && (active === "전체" || item.category === active) &&
       norm(item.title + (pageBySlug[slugByTitle[item.title]]?.title ?? "") + (pageBySlug[slugByTitle[item.title]]?.rows.map(row => row.name).join(" ") ?? "")).includes(norm(query)));
+    list.sort((a, b) => {
+      const updated = (title: string) => {
+        const page = pageBySlug[slugByTitle[title]];
+        return page ? dateParts(page.date, page.auditDate).updated ?? "" : "";
+      };
+      return updated(b.title).localeCompare(updated(a.title));
+    });
     const pin = rankings.find((item) => item.title === PINNED_THIRD);
     if (norm(query) || !pin || !shown(pin)) return list;
     const rest = list.filter((item) => item !== pin);
