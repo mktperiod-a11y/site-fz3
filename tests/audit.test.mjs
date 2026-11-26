@@ -9,8 +9,8 @@ function load(file){file=path.resolve(file);if(cache.has(file))return cache.get(
 const {pages}=load('app/rankings/data.ts');
 const detail=fs.readFileSync('app/rankings/[slug]/page.tsx','utf8');
 const map=JSON.parse(detail.match(/export const imageByName[^=]*= (\{[\s\S]*?\n\});/)[1]);
-test('all 38 pages have explicit audit decisions and no broken local row images',()=>{
- assert.equal(pages.length,38);assert.equal(new Set(pages.map(p=>p.slug)).size,38);
+test('all 40 pages have explicit audit decisions and no broken local row images',()=>{
+ assert.equal(pages.length,40);assert.equal(new Set(pages.map(p=>p.slug)).size,40);
  for(const p of pages){assert.ok(p.auditDate,p.slug);for(const r of p.rows){const src=r.image||map[r.name];if(!src)continue;
  assert.ok(src,`${p.slug}: missing ${r.name}`);if(src.startsWith('/'))assert.ok(fs.statSync('public'+src).size>100,src);assert.ok(!src.includes('unsplash'),`unverified stock image ${p.slug}`);}}
 });
@@ -52,9 +52,9 @@ test('corrections and withheld rankings are consistent',()=>{
  for(const p of pages.filter(p=>p.noindex))assert.ok(p.unranked);
 });
 test('public lists reach ten or declare a real source limitation',()=>{
- const {rankingCountExceptions}=load('app/rankings/completion.ts');
+ const {rankingCountExceptions,rankingItemLimit}=load('app/rankings/completion.ts');
  for(const p of pages.filter(p=>!p.noindex)){
-  assert.ok(p.rows.length<=10,p.slug);
+  assert.ok(p.rows.length<=rankingItemLimit(p.slug),p.slug);
   if(p.rows.length<10)assert.ok(rankingCountExceptions[p.slug],p.slug);
   assert.equal(new Set(p.rows.map(r=>r.name+" · "+r.note)).size,p.rows.length,p.slug);
  }
@@ -78,6 +78,22 @@ test('row images come from a recorded source, never self-made placeholders',()=>
 test('every public ranking declares how it stays fresh',()=>{
  const {FRESHNESS}=load('app/rankings/freshness.ts');
  for(const p of pages.filter(p=>!p.noindex))assert.ok(FRESHNESS[p.slug],`${p.slug}: freshness.ts에 갱신 방식 없음`);
+});
+
+test('FA contracts preserve conditional totals, historical contracts and shared ranks',()=>{
+ const current=pages.find(p=>p.slug==='kbo-fa-contracts-2027');
+ const historical=pages.find(p=>p.slug==='kbo-fa-contracts-all-time');
+ assert.equal(current.rows.length,4);
+ assert.equal(historical.rows.length,20);
+ assert.deepEqual(Array.from(current.rows,r=>r.value),['최대 67억원','최대 55억원','최대 15억원','최대 11억원']);
+ assert.match(current.rows[0].note,/보장 58억 · 조건부 9억/);
+ assert.match(current.rows[2].note,/2\+1년/);
+ const values=historical.rows.map(r=>Number(r.value.replace(/[^\d.]/g,'')));
+ for(let i=0;i<values.length;i++)assert.equal(historical.rows[i].rank,values.indexOf(values[i])+1);
+ assert.equal(historical.rows[0].name,'양의지 · 2023 FA');
+ assert.ok(historical.rows.some(r=>r.name==='오지환 · 2024 FA'));
+ assert.ok(historical.rows.every(r=>!['노시환','류현진','김광현'].some(name=>r.name.startsWith(name))));
+ for(const p of [current,historical])for(const r of p.rows)assert.match(r.sourceUrl,/^https:\/\//);
 });
 
 test('final Asian Games table and FAQ share the final result',()=>{

@@ -5,6 +5,7 @@ const checked = (cycle: string): Freshness => ({ kind: 'checked', cycle });
 const FIXED: Freshness = { kind: 'fixed' };
 
 export const FRESHNESS: Record<string, Freshness> = {
+  'kbo-fa-contracts-2027': checked('계약 발표 시'), 'kbo-fa-contracts-all-time': checked('대형 계약 발표 시'),
   'netflix-korea-films-weekly': auto('매주 수요일'), 'ott-content-weekly': auto('매주 수요일'),
   'anime-all-time-popular': auto('매주 수·토요일'), 'anime-season-poll': auto('매주 수·토요일'),
   'file-sharing-services': auto('2일마다'),

@@ -1,9 +1,11 @@
 export const PINNED_THIRD = "파일 공유 서비스 비교";
 
 export const catalog = [
+  { category: "스포츠", icon: "⚾", title: "2027 시즌 KBO FA 계약금액 순위", color: "blue" },
+  { category: "스포츠", icon: "💰", title: "KBO 역대 FA 최고액 계약 TOP 20", color: "gold" },
+  { category: "IT·게임", icon: "💾", title: "파일 공유 서비스 비교", color: "indigo" },
   { category: "스포츠", icon: "🏆", title: "역대 아시안게임 야구 메달 순위", color: "blue" },
   { category: "스포츠", icon: "🏅", title: "2026 아시안게임 국가별 메달 순위", color: "gold" },
-  { category: "IT·게임", icon: "💾", title: "파일 공유 서비스 비교", color: "indigo" },
   { category: "IT·게임", icon: "🎮", title: "국내 인기 모바일 게임 순위", color: "purple" },
   { category: "IT·게임", icon: "🖥️", title: "국내 인기 PC 게임 순위", color: "navy" },
   { category: "미디어", icon: "🍿", title: "이번 주 넷플릭스 영화 TOP 10", color: "red" },
