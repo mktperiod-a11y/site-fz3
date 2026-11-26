@@ -19,6 +19,8 @@ const categories: Category[] = ["전체", "스포츠", "미디어", "라이프",
 
 
 const heroQuestions = [
+  { icon: "🤖", question: "한국인이 가장 많이 쓰는 AI 앱은?", slug: "korea-ai-app-users" },
+  { icon: "🏆", question: "게임어워드 최다 후보 게임은?", slug: "the-game-awards-nominations-2026" },
   { icon: "⚾", question: "이번 FA 시장에서 가장 큰 계약은?", slug: "kbo-fa-contracts-2027" },
   { icon: "💰", question: "역대 FA 최고 계약금액은?", slug: "kbo-fa-contracts-all-time" },
   { icon: "⚾️", question: "아시안게임 야구 최다 우승국은?", slug: "asian-games-baseball-champions" },

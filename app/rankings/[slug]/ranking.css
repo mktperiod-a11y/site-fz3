@@ -239,4 +239,16 @@
 .dp-card li a span{flex:1;min-width:0}
 .dp-rel-icon{flex-shrink:0;display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:color-mix(in srgb,var(--tone) 20%,#fff);font-style:normal;font-size:16px;line-height:1}
 .dp-step strong{white-space:nowrap}
+.dp-comparison{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+.dp-comparison:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.dp-comparison table{width:100%;min-width:640px;border-collapse:collapse;text-align:left;font-size:1rem;line-height:1.6}
+.dp-comparison caption{text-align:left;padding:18px 20px;color:#526079;font-size:.9375rem}
+.dp-comparison th,.dp-comparison td{padding:18px 20px;border-top:1px solid var(--line);vertical-align:top;word-break:keep-all}
+.dp-comparison thead th{background:#edf3ff;color:#172e57;min-width:170px}
+.dp-comparison thead th:first-child{min-width:92px}
+.dp-comparison th small{display:block;margin-top:4px;font-size:.875rem;font-weight:400;color:#526079}
+.dp-comparison tbody th{white-space:nowrap;color:var(--blue)}
+.dp-comparison tbody tr:nth-child(even){background:#f8faff}
+.dp-extra-sources{list-style:none;margin:12px 0 0;padding:0;font-size:.875rem;line-height:1.6}
+.dp-extra-sources li{margin:8px 0}
 @media(max-width:640px){.dp-step strong{font-size:12px;letter-spacing:-.4px;white-space:normal;word-break:keep-all;text-align:center;line-height:1.4;max-width:100%}.dp-step strong .dp-nb{white-space:nowrap}}

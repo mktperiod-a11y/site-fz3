@@ -277,7 +277,32 @@ export default async function RankingDetail({
 
       <section className="dp-wrap dp-body">
         <div className="dp-main">
-          {p.divisions ? (
+          {p.comparison ? (
+            <>
+              <div className="dp-head">
+                <p>COMPARE</p>
+                <h2>서점별 순위 한눈에 비교</h2>
+              </div>
+              <div className="dp-comparison" tabIndex={0} role="region" aria-label="서점별 베스트셀러 비교표. 작은 화면에서는 좌우로 이동할 수 있습니다.">
+                <table>
+                  <caption>{p.comparison.caption}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">서점 내 순위</th>
+                      {p.comparison.columns.map(c => <th scope="col" key={c.name}>{c.name}<small>{c.period}</small><small>{c.description}</small></th>)}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {p.comparison.rows.map(row => <tr key={row.rank}>
+                      <th scope="row">{row.rank}위</th>
+                      {row.values.map((title, i) => <td key={p.comparison!.columns[i].name}>{title}</td>)}
+                    </tr>)}
+                  </tbody>
+                </table>
+              </div>
+              <p className="dp-count-note">집계 기간이 다릅니다. 각 서점의 순위를 합산하거나 평균 내지 않습니다.</p>
+            </>
+          ) : p.divisions ? (
             <>
               {p.p4p && p.p4p.length > 0 && (
                 <>
@@ -559,6 +584,7 @@ export default async function RankingDetail({
             ) : (
               <span className="dp-source static">{p.source}</span>
             )}
+            {p.sources && <ul className="dp-extra-sources">{p.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a></li>)}</ul>}
             {presentation.updated && (
               <p className="dp-checked">업데이트 {presentation.updated}</p>
             )}

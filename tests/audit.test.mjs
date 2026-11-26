@@ -9,8 +9,8 @@ function load(file){file=path.resolve(file);if(cache.has(file))return cache.get(
 const {pages}=load('app/rankings/data.ts');
 const detail=fs.readFileSync('app/rankings/[slug]/page.tsx','utf8');
 const map=JSON.parse(detail.match(/export const imageByName[^=]*= (\{[\s\S]*?\n\});/)[1]);
-test('all 40 pages have explicit audit decisions and no broken local row images',()=>{
- assert.equal(pages.length,40);assert.equal(new Set(pages.map(p=>p.slug)).size,40);
+test('all 44 pages have explicit audit decisions and no broken local row images',()=>{
+ assert.equal(pages.length,44);assert.equal(new Set(pages.map(p=>p.slug)).size,44);
  for(const p of pages){assert.ok(p.auditDate,p.slug);for(const r of p.rows){const src=r.image||map[r.name];if(!src)continue;
  assert.ok(src,`${p.slug}: missing ${r.name}`);if(src.startsWith('/'))assert.ok(fs.statSync('public'+src).size>100,src);assert.ok(!src.includes('unsplash'),`unverified stock image ${p.slug}`);}}
 });
@@ -58,7 +58,7 @@ test('public lists reach ten or declare a real source limitation',()=>{
   if(p.rows.length<10)assert.ok(rankingCountExceptions[p.slug],p.slug);
   assert.equal(new Set(p.rows.map(r=>r.name+" · "+r.note)).size,p.rows.length,p.slug);
  }
- assert.equal(pages.filter(p=>!p.noindex&&p.rows.length===10).length,31);
+ assert.equal(pages.filter(p=>!p.noindex&&p.rows.length===10).length,32);
 });
 test('shared row criteria move up while item-specific details remain',()=>{
  const {rankingPresentation}=load('app/rankings/presentation.ts');
@@ -94,6 +94,20 @@ test('FA contracts preserve conditional totals, historical contracts and shared 
  assert.ok(historical.rows.some(r=>r.name==='오지환 · 2024 FA'));
  assert.ok(historical.rows.every(r=>!['노시환','류현진','김광현'].some(name=>r.name.startsWith(name))));
  for(const p of [current,historical])for(const r of p.rows)assert.match(r.sourceUrl,/^https:\/\//);
+});
+
+test('new trends preserve survey scope, nomination ties and separate bookstore periods',()=>{
+ const by=Object.fromEntries(pages.map(p=>[p.slug,p]));
+ const ai=by['korea-ai-app-users'],tga=by['the-game-awards-nominations-2026'];
+ const travel=by['year-end-travel-city-searches-2026'],books=by['weekly-bookstore-bestsellers'];
+ assert.equal(ai.rows.length,10);assert.equal(ai.rows[0].value,'약 2,551만명');assert.match(ai.basis,/표본 추정/);
+ assert.deepEqual(Array.from(tga.rows,r=>r.rank),[1,2,2,4,5,5,5,8,8]);
+ assert.equal(travel.rows.length,3);assert.deepEqual(Array.from(travel.rows,r=>r.name),['오사카','후쿠오카','도쿄']);
+ assert.match(travel.description,/사전 검색/);
+ assert.ok(books.unranked);assert.equal(books.rows.length,8);assert.equal(books.comparison.rows.length,5);
+ assert.equal(new Set(books.comparison.columns.map(c=>c.period)).size,3);
+ assert.deepEqual(Array.from(books.comparison.rows[0].values),['가호','가호','공부의 종말']);
+ for(const p of [ai,tga,travel,books])assert.ok(p.auditDate&&p.sourceUrl&&p.faq.length>=3);
 });
 
 test('final Asian Games table and FAQ share the final result',()=>{

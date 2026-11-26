@@ -1,9 +1,13 @@
 export const PINNED_THIRD = "파일 공유 서비스 비교";
 
 export const catalog = [
+  { category: "IT·게임", icon: "🤖", title: "한국인이 많이 쓰는 AI 앱 TOP 10", color: "indigo" },
+  { category: "IT·게임", icon: "🏆", title: "2026 게임어워드 최다 후보 지명 게임 TOP 9", color: "purple" },
+  { category: "IT·게임", icon: "💾", title: "파일 공유 서비스 비교", color: "indigo" },
+  { category: "라이프", icon: "✈️", title: "연말 해외여행 인기 도시 TOP 3", color: "cyan" },
+  { category: "미디어", icon: "📚", title: "이번 주 서점별 베스트셀러 비교", color: "orange" },
   { category: "스포츠", icon: "⚾", title: "2027 시즌 KBO FA 계약금액 순위", color: "blue" },
   { category: "스포츠", icon: "💰", title: "KBO 역대 FA 최고액 계약 TOP 20", color: "gold" },
-  { category: "IT·게임", icon: "💾", title: "파일 공유 서비스 비교", color: "indigo" },
   { category: "스포츠", icon: "🏆", title: "역대 아시안게임 야구 메달 순위", color: "blue" },
   { category: "스포츠", icon: "🏅", title: "2026 아시안게임 국가별 메달 순위", color: "gold" },
   { category: "IT·게임", icon: "🎮", title: "국내 인기 모바일 게임 순위", color: "purple" },
